@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Safe Twitter Browsing for Conservatives",
   "short_name": "SJW Bot",
-  "description": "Know who the SJWs are and crowd-source new SJWs as you discover them.",
+  "description": "Know who's who in the Twittersphere and crowd-source dangerous SJWs as you discover them.",
   "browser_action": {
      "default_icon": "sjw128.png"
    },
