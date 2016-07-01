@@ -1,0 +1,26 @@
+.btn-distribute{
+  border: 1px solid black;
+  border-radius: 2px;
+  background: #fff;
+  color: #000;
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-distribute:hover{
+  background: #000;
+  color: white;
+}
+
+/*
+.btn-distrubte:focus{
+  background-color: #00D6EB;
+}
+
+sdafjsadfasdf*/
