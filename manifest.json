@@ -6,7 +6,7 @@
   "browser_action": {
      "default_icon": "sjw128.png"
    },
-  "version": "1.1",
+  "version": "0.1",
   "icons": { "16": "sjw16.png",
            "48": "sjw48.png",
           "128": "sjw128.png" },

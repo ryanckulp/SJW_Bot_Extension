@@ -1,21 +1,17 @@
-console.log('loaded SJW script');
-var api_base = 'https://8137cc5e.ngrok.io';
-var sjw_text = 'https://pbs.twimg.com/media/Clh5FKpVYAAGStA.jpg'
-var sjw_logo = 'https://pbs.twimg.com/media/Clh6oCQUsAA8wIf.png'
-var checked_for_sjws = false;
+console.log('SJW script LOADED');
+var api_base = 'https://8137cc5e.ngrok.io',
+    sjw_text = 'https://pbs.twimg.com/media/Clh5FKpVYAAGStA.jpg',
+    sjw_logo = 'https://pbs.twimg.com/media/Clh6oCQUsAA8wIf.png',
+    checked_for_sjws = false;
 
 function getTweets() {
   return $('li.js-stream-item.stream-item.stream-item');
 }
 
-function getTimestamps() {
-  return $('.tweet-timestamp.js-permalink.js-nav.js-tooltip');
-}
-
 function checkForSJW(tweets) {
   tweets.each(function() {
-    var tweet = $(this);
-    var handle = tweet.find('div.tweet').data('screen-name');
+    var tweet = $(this),
+        handle = tweet.find('div.tweet').data('screen-name');
 
     $.ajax({
       url: api_base + '/warriors/check/' + handle,
@@ -23,14 +19,11 @@ function checkForSJW(tweets) {
       success: function(data) {
         if (data['sjw'] == 'true') {
           tweet.find('div.content').find('img.avatar').attr('src', sjw_text);
+          tweet.find('.tweet-timestamp').after('<img class="sjw-logo" style="width: 20px; height: 20px; margin-left:5px; float:right;" src='+sjw_logo+'>')
         }
       }
     })
   })
-}
-
-function addIconToTimestamps(timestamps) {
-  timestamps.each(function() {$(this).after('<img class="sjw-logo" style="width: 20px; height: 20px; margin-left:5px; float:right;" src='+sjw_logo+'>') });
 }
 
 // only run checks if user viewing generic twitter feed (or notifications tab, TBD)
@@ -38,8 +31,6 @@ setInterval(function() {
   if ($('div.ProfileCanopy').length == 0 && checked_for_sjws == false) {
     var tweets = getTweets();
     checkForSJW(tweets)
-    var timestamps = getTimestamps();
-    addIconToTimestamps(timestamps);
     checked_for_sjws = true;
   }
 }, 500)
@@ -52,9 +43,9 @@ setInterval(function() {
 // })
 
 if ($('div.ProfileCanopy').length == 1) {
-
-  var nominee = $('div.ProfileHeaderCard').find('span.u-linkComplex-target').text();
-  var nominator = $('li.current-user').find('a').attr('href').split('/')[1];
+  var nominee = $('div.ProfileHeaderCard').find('span.u-linkComplex-target').text(),
+      nominator = $('li.current-user').find('a').attr('href').split('/')[1];
+      avatar = $('div.ProfileAvatar').find('img');
 
   var refreshInterval = setInterval(function() {
       if ($('div#nominate-sjw').length == 0) {
@@ -71,6 +62,13 @@ if ($('div.ProfileCanopy').length == 1) {
           showThanks();
           clearInterval(refreshInterval);
         }
+
+        if (data['warrior'] == 'true') {
+          avatar.attr('src', 'https://pbs.twimg.com/media/Clh6oCQUsAA8wIf.png')
+          showThanks();
+          clearInterval(refreshInterval);
+        }
+
         else {showNomination(); clearInterval(refreshInterval);}
       }
     })
