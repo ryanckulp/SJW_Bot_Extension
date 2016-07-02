@@ -44,13 +44,6 @@ $(window).scroll(function() {
    }
 });
 
-// out of service due to Z-Index of twitter native elements, near the timestamp badge
-// $('.sjw-logo').on('click', function(e){
-//   e.preventDefault();
-//   var username = $(this).parents('div.tweet').data('screen-name');
-//   console.log(username);
-// })
-
 if ($('div.ProfileCanopy').length == 1) {
   var nominee = $('div.ProfileHeaderCard').find('span.u-linkComplex-target').text(),
       nominator = $('li.current-user').find('a').attr('href').split('/')[1];
@@ -78,9 +71,20 @@ if ($('div.ProfileCanopy').length == 1) {
           clearInterval(refreshInterval);
         }
 
+        if ($('button.UserActions-editButton.edit-button').find('.button-text').text() == 'Edit profile') {
+          showPromo();
+          clearInterval(refreshInterval);
+        }
+
         else {showNomination(); clearInterval(refreshInterval);}
       }
     })
+  }
+
+  function showPromo() {
+    $('div.ProfileMessagingActions-actionsContainer').append('<div id="nominate-sjw"><button class="u-sizeFull js-tooltip btn primary-btn tweet-action tweet-btn" type="button" style="background-color:#19cf86"><span class="NewTweetButton-content button-text tweeting-text u-textTruncate"><span class="NewTweetButton-text" id="sjw-cta" aria-hidden="true">Thanks for using SJW Bot!</span></span></button></div>');
+    $("#nominate-sjw").attr("disabled", "disabled");
+    $("#nominate-sjw").addClass("promo");
   }
 
   function showThanks() {
@@ -94,6 +98,7 @@ if ($('div.ProfileCanopy').length == 1) {
 
   $('body').on('click', '#nominate-sjw', function(e) {
     e.preventDefault();
+    if ($(this).hasClass('promo')) {window.open('http://www.sjwbot.com', '_blank'); return false;} // handle user on own profile page
     if ($(this).attr('disabled') == 'disabled') {return false;} // handle already nominated
 
     if ($('div#nominate-sjw').length == 1) {clearInterval(refreshInterval);}
