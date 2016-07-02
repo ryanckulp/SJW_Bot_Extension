@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Safe Twitter Browsing for Conservatives",
+  "name": "SJW Bot -- Twitter Browsing for Conservatives",
   "short_name": "SJW Bot",
-  "description": "Know who's who in the Twittersphere and crowd-source dangerous SJWs as you discover them.",
+  "description": "Free tool that helps you identify and avoid dangerous SJWs on Twitter.",
   "browser_action": {
      "default_icon": "sjw128.png"
    },
-  "version": "0.1",
+  "version": "0.2",
   "icons": { "16": "sjw16.png",
            "48": "sjw48.png",
           "128": "sjw128.png" },
@@ -24,8 +24,7 @@
         "http://*.twitter.com/*",
         "https://*.twitter.com/*"
         ],
-      "js":["jquery.min.js","content.js" ],
-      "css":["style.css"]
+      "js":["jquery.min.js","content.js" ]
     }
   ]
 }
