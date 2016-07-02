@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "SJW Bot -- Twitter Browsing for Conservatives",
+  "name": "SJW Bot -- Browse Twitter Conservatively",
   "short_name": "SJW Bot",
   "description": "Free tool that helps you identify and avoid dangerous SJWs on Twitter.",
   "browser_action": {
