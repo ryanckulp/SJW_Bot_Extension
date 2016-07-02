@@ -35,6 +35,15 @@ setInterval(function() {
   }
 }, 500)
 
+// check for sjws again, if user auto loads more tweetes in feed
+$(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+     var tweets = getTweets();
+     console.log('got new tweets');
+     checkForSJW(tweets);
+   }
+});
+
 // out of service due to Z-Index of twitter native elements, near the timestamp badge
 // $('.sjw-logo').on('click', function(e){
 //   e.preventDefault();

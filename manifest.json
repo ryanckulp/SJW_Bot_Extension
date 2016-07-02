@@ -15,7 +15,7 @@
     "tabs"
   ],
   "background":{
-    "scripts": ["jquery.min.js", "eventPage.js", "icon.js"],
+    "scripts": ["jquery.min.js", "icon.js"],
     "persistent": false
   },
   "content_scripts": [
