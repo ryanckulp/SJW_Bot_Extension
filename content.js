@@ -1,5 +1,5 @@
 console.log('SJW script LOADED');
-var api_base = 'https://8137cc5e.ngrok.io',
+var api_base = 'https://sjwbot.herokuapp.com',
     sjw_text = 'https://pbs.twimg.com/media/Clh5FKpVYAAGStA.jpg',
     sjw_logo = 'https://pbs.twimg.com/media/Clh6oCQUsAA8wIf.png',
     checked_for_sjws = false;
